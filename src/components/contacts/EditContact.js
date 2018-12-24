@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
-import Axios from "axios";
+import axios from "axios";
 
 class EditContact extends Component {
   state = {
@@ -15,8 +15,8 @@ class EditContact extends Component {
 
   async componentDidMount() {
     const { id } = this.props.match.params;
-    const res = await Axios.get(
-      `http://jsonplaceholder.typicode.com/users/${id}`
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${id}`
     );
     const contact = res.data;
     this.setState({
@@ -53,8 +53,8 @@ class EditContact extends Component {
 
     const { id } = this.props.match.params;
 
-    const res = await Axios.put(
-      `http://jsonplaceholder.typicode.com/users/${id}`,
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
       updContact
     );
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Consumer } from "../../context";
 import uudi from "uuid";
 import TextInputGroup from "../layout/TextInputGroup";
-import Axios from "axios";
+import axios from "axios";
 
 class AddContact extends Component {
   state = {
@@ -39,8 +39,8 @@ class AddContact extends Component {
       email,
       phone
     };
-    const res = await Axios.post(
-      "http://jsonplaceholder.typicode.com/users",
+    const res = await axios.post(
+      "https://jsonplaceholder.typicode.com/users",
       newContact
     );
     dispatch({ type: "ADD_CONTACT", payload: res.data });
